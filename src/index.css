@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #EAE4D8;
+    color: #161412;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Tactile Bubble Navbar Outer Shell */
+.bubble-nav-shell {
+  background: #1A1715;
+  border-radius: 36px;
+  padding: 7px;
+  box-shadow:
+    0 22px 44px -10px rgba(22, 20, 18, 0.48),
+    0 6px 16px rgba(22, 20, 18, 0.26),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.14),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.65);
+  border: 1px solid #2A2522;
+}
+
+/* Sliding Sunken Well Pill inside Bubble Navbar */
+.bubble-sunken-slider {
+  background: #0B0908;
+  border-radius: 28px;
+  box-shadow:
+    inset 0 6px 11px rgba(0, 0, 0, 0.92),
+    inset 0 2px 4px rgba(0, 0, 0, 0.98),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid #070605;
+  transition: transform 0.38s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+/* Sunken / Udubljeni Tab State inside the Bubble (for Staff mode) */
+.bubble-tab-sunken {
+  background: #0B0908;
+  border-radius: 28px;
+  transform: translateY(2.5px) scale(0.96);
+  box-shadow:
+    inset 0 6px 11px rgba(0, 0, 0, 0.92),
+    inset 0 2px 4px rgba(0, 0, 0, 0.98),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid #070605;
+  transition: all 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Raised / Unpressed Tab inside the Bubble */
+.bubble-tab-raised {
+  border-radius: 28px;
+  transform: translateY(0) scale(1);
+  transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Big Center Staff Scanner Button in Navbar */
+.staff-center-scan-btn {
+  background: #DF3B16;
+  box-shadow:
+    0 12px 26px rgba(223, 59, 22, 0.52),
+    inset 0 2px 2px rgba(255, 255, 255, 0.35),
+    inset 0 -3px 4px rgba(120, 20, 5, 0.6);
+  border: 4px solid #1A1715;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+}
+
+.staff-center-scan-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.staff-center-scan-btn:active {
+  transform: translateY(4px) scale(0.92);
+  box-shadow:
+    inset 0 5px 10px rgba(0, 0, 0, 0.6),
+    0 2px 8px rgba(223, 59, 22, 0.3);
+}
+
+/* Perforated Physical Coupon Cutouts on Warm Paper */
+.paper-notch-left {
+  position: absolute;
+  left: -11px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background-color: #F4F0E8;
+  border-right: 1px solid #DFD8CB;
+}
+
+.paper-notch-right {
+  position: absolute;
+  right: -11px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background-color: #F4F0E8;
+  border-left: 1px solid #DFD8CB;
+}
+
+/* Keyframe Animations */
+@keyframes scanline {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(180px);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.animate-scanline {
+  animation: scanline 2.2s ease-in-out infinite;
+}
+
+@keyframes qrLaser {
+  0% {
+    top: 8%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 90%;
+    opacity: 0;
+  }
+}
+
+.animate-qr-laser {
+  animation: qrLaser 2.1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes cardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-card-enter {
+  animation: cardEnter 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes viewEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-view-enter {
+  animation: viewEnter 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes sheetUp {
+  0% {
+    opacity: 0;
+    transform: translateY(48px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-sheet-up {
+  animation: sheetUp 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes backdropFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-backdrop-fade {
+  animation: backdropFade 0.24s ease-out both;
+}
+
+@keyframes qrReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.88) rotateX(12deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateX(0deg);
+  }
+}
+
+.animate-qr-reveal {
+  animation: qrReveal 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes stampPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.45);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-stamp-pop {
+  animation: stampPop 0.48s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes iconSpring {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.82) translateY(2px);
+  }
+  80% {
+    transform: scale(1.08) translateY(-1px);
+  }
+  100% {
+    transform: scale(0.95) translateY(1px);
+  }
+}
+
+.animate-icon-spring {
+  animation: iconSpring 0.36s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}

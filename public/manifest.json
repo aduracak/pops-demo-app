@@ -1,0 +1,10 @@
+{
+  "name": "Pop's Caffe & Food — Loyalty & Kuponi",
+  "short_name": "Pop's Pass",
+  "description": "Službena Loyalty & Kuponi aplikacija za Pop's Caffe & Food (pops.ba)",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F0D0C",
+  "theme_color": "#E84A27",
+  "orientation": "portrait"
+}
